@@ -1,22 +1,27 @@
 import { useState } from 'react'
 import './App.css'
-import Number from './Number'
-import Counter from './Counter'
+import ControllCount from './ControllCount'
+import DisplayCount from './DisplayCount'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [showSuccess, setShowSuccess] = useState(false)
 
   
 
   return (
     <div>
-     <Number number={count}></Number>
-     <Counter number={count} setCount={setCount}></Counter>
-
+     <DisplayCount number={count}></DisplayCount>
+     <ControllCount 
+      number={count}
+      setCount={setCount} 
+      showSuccess={showSuccess} 
+      setShowSuccess={setShowSuccess}>
+      </ControllCount>
     </div>
     
   )
 }
+
 
 export default App

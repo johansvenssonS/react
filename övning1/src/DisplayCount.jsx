@@ -1,4 +1,4 @@
-function Number(props){
+function DisplayCount(props){
     return(
         <>
         <p>{props.number}</p>
@@ -6,4 +6,4 @@ function Number(props){
     )
 }
 
-export default Number
+export default DisplayCount
