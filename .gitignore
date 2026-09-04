@@ -1,0 +1,5 @@
+**/.claude/settings.local.json
+
+# Raw slide decks stay local (binary, can be large, may be copyrighted course
+# material) — the extracted markdown in slides/notes/ is what gets tracked.
+slides/inbox/*.pptx

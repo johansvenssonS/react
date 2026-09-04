@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(**/src/**)",
+      "Write(**/src/**)",
+      "Edit(**/index.html)",
+      "Write(**/index.html)"
+    ],
+    "ask": [
+      "Edit(**/*.config.js)",
+      "Write(**/*.config.js)"
+    ],
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(python scripts/extract_pptx.py:*)",
+      "Bash(python3 scripts/extract_pptx.py:*)"
+    ]
+  }
+}
