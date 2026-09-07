@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ControllCount from './ControllCount'
 import DisplayCount from './DisplayCount'
@@ -6,7 +6,9 @@ import DisplayCount from './DisplayCount'
 function App() {
   const [count, setCount] = useState(0)
   const [showSuccess, setShowSuccess] = useState(false)
-
+  useEffect(() =>{
+    console.log("useEffect har triggats")
+  },[showSuccess])
   
 
   return (
