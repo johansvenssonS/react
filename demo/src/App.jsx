@@ -4,6 +4,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
 import HelloName from "./Hello.jsx";
+import NameInput from "./NameInput.jsx";
 
 function App() {
   let fruits = [
@@ -29,6 +30,8 @@ function App() {
       <HelloName name="Johan" color="blue"></HelloName>
       <HelloName name="Martin" color="yellow"></HelloName>
       <HelloName name="Svensson" color="green"></HelloName>
+
+      <NameInput></NameInput>
     </>
   );
 }
