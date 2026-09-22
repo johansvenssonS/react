@@ -2,9 +2,10 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
-import Users from "./Users";
 import ParentUserComponent from "./ParentUserComponent";
 import ParentProductComponent from "./ParentProductComponent";
+import SingleProductComponent from "./SingleProductComponent";
+import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="/products"
             element={<ParentProductComponent></ParentProductComponent>}
+          ></Route>
+          <Route
+            path="/products/:productId"
+            element={<SingleProductComponent></SingleProductComponent>}
           ></Route>
         </Routes>
       </BrowserRouter>

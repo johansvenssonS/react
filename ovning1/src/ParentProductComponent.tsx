@@ -9,6 +9,7 @@ interface ProductDate {
   description: string;
   price: number;
   title: string;
+  image: string;
 }
 
 const ParentProductComponent = () => {
@@ -40,22 +41,39 @@ const ParentProductComponent = () => {
     setXproducts(expensiveProducts);
     console.log(expensiveProducts);
   };
+  const removeFilter = () => {
+    setXproducts(products);
+  };
+
+  let pickProducts = [];
+
+  if (xproducts.length > 1) {
+    pickProducts = xproducts;
+  } else {
+    pickProducts = products;
+  }
 
   return (
     <>
-      <ul>
-        {(xproducts || products).map((p: ProductDate) => (
+      <div>
+        <button onClick={filterProducts}> FILTRERA</button>
+        <button onClick={removeFilter} id="remove">
+          X
+        </button>
+      </div>
+      <div className="productgrid">
+        {pickProducts.map((p: ProductDate) => (
           <Products
+            key={p.id}
             id={p.id}
             category={p.category}
             description={p.description}
             price={p.price}
             title={p.title}
+            image={p.image}
           ></Products>
         ))}
-      </ul>
-
-      <button onClick={filterProducts}> FILTRERA</button>
+      </div>
     </>
   );
 };

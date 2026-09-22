@@ -109,6 +109,22 @@ he will need to lift the `deny` rule in `.claude/settings.json` (via `/permissio
 - `demo/` — Vite + React 19, plain JavaScript (`.jsx`, not TypeScript), ESLint with
   `eslint-plugin-react-hooks`. Entry point `src/main.jsx` → `src/App.jsx`. No router, no
   state library, no test runner. Hello-world / fundamentals.
+- `hook/` — `useState` practice: `App.jsx` renders `Counter.jsx` and `Counter2.jsx` side
+  by side, plus a `Squares.jsx`. Standard Vite + React template otherwise.
+- `läxa1/` — ("homework 1") `useState` + one-level prop passing / lifting state up across
+  three mini-tasks in one `App.jsx`: a counter (`DisplayCounter`/`HandleCounter`), a color
+  picker (`DisplayBox`/`ColorControls`), and a quantity/price display
+  (`ProductDisplay`/`QuantityControls`).
+- `övning1/` — ("exercise 1") `useEffect` with a variable dependency array —
+  `App.jsx` logs on changes to a `showSuccess` state passed down to `ControllCount`/
+  `DisplayCount`.
+- `test/` — `useEffect` fetch-on-mount: fetches users from `jsonplaceholder.typicode.com`
+  and renders them via `User.jsx`.
+- `test1/` — `useEffect` fetch-on-mount: fetches products from `fakestoreapi.com` and
+  renders them via `ProductCard.jsx`.
+- `usestate/` — `useEffect` fetch-on-mount with a `loading` state (shows "Laddar...."
+  until data arrives) — `App.jsx` fetches users from `jsonplaceholder.typicode.com` and
+  passes them to `ExampleComponent.jsx`.
 
 Add new folders to this list with a one-line note on what they're for as they're created,
 so future sessions don't have to guess.
