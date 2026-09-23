@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Products from "./Products";
-
+import { ClimbingBoxLoader } from "react-spinners";
 import { useState } from "react";
 
 interface ProductDate {
@@ -14,10 +14,11 @@ interface ProductDate {
 
 const ParentProductComponent = () => {
   const [xproducts, setXproducts] = useState([]);
+  const [search, setSearched] = useState(false);
   const {
     data: products,
     isLoading,
-    error,
+    //error,
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
@@ -28,21 +29,28 @@ const ParentProductComponent = () => {
   });
 
   if (isLoading) {
-    return <p>Laddar användare...</p>;
+    return (
+      <div className="loading">
+        <ClimbingBoxLoader size={100} color="red">
+          Laddar användare...
+        </ClimbingBoxLoader>
+        <p>Laddar användare..</p>
+      </div>
+    );
   }
 
-  if (error) {
-    return <p>Ett fel uppstod</p>;
-  }
-  console.log(products);
+  // if (error) {
+  //   return <p>Ett fel uppstod</p>;
+  // }
 
   const filterProducts = () => {
     const expensiveProducts = products.filter((p) => p.price > 50);
     setXproducts(expensiveProducts);
-    console.log(expensiveProducts);
+    setSearched(false);
   };
   const removeFilter = () => {
     setXproducts(products);
+    setSearched(false);
   };
 
   let pickProducts = [];
@@ -53,13 +61,27 @@ const ParentProductComponent = () => {
     pickProducts = products;
   }
 
+  if (search) {
+    pickProducts = xproducts;
+  }
+
+  const searchProducts = (e) => {
+    let string = e.target.value;
+    const resArr = products.filter((p) => p.title.startsWith(string));
+    setXproducts(resArr);
+    setSearched(true);
+  };
+
   return (
     <>
-      <div>
+      <div className="productfunc">
         <button onClick={filterProducts}> FILTRERA</button>
         <button onClick={removeFilter} id="remove">
           X
         </button>
+        <div>
+          <input onChange={searchProducts}></input>
+        </div>
       </div>
       <div className="productgrid">
         {pickProducts.map((p: ProductDate) => (

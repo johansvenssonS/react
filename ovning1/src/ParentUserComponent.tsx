@@ -1,19 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import Users from "./Users";
-
-interface userDate {
-  id: number;
-  name: string;
-  email: string;
-  address: object;
-}
+import UserCard from "./Usercard";
+import { ClimbingBoxLoader } from "react-spinners";
 
 const ParentUserComponent = () => {
   const {
     data: users,
     isLoading,
-    error,
+    //error,
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -24,20 +18,27 @@ const ParentUserComponent = () => {
   });
 
   if (isLoading) {
-    return <p>Laddar användare...</p>;
+    return (
+      <div className="loading">
+        <ClimbingBoxLoader size={100} color="red">
+          Laddar användare...
+        </ClimbingBoxLoader>
+        <p>Laddar användare..</p>
+      </div>
+    );
   }
 
-  if (error) {
-    return <p>Ett fel uppstod</p>;
-  }
+  // if (error) {
+  //   return <p>Ett fel uppstod</p>;
+  // }
   console.log(users);
 
   return (
-    <ul>
-      {users.map((u: userDate) => (
-        <Users id={u.id} name={u.name} email={u.email}></Users>
+    <div className="productgrid">
+      {users.map((user) => (
+        <UserCard key={user.id} user={user}></UserCard>
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -16,6 +16,29 @@
     outline-offset: 2px;
   }
 }
+.productfunc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: aliceblue;
+  padding: 5px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: grey;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 250px;
+}
+
 #remove {
   background-color: red;
 }
